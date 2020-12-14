@@ -1,2 +1,3 @@
 recipes.yaml
 *.jpg
+.env
