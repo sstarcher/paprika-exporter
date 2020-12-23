@@ -3,9 +3,9 @@ name: Update Recipes
 on:
   push:
     branches:
-      - master
+      - main
   schedule:
-    - cron:  '0 0 * * *'
+    - cron:  '*/15 * * * *'
   workflow_dispatch:
 
 
@@ -37,7 +37,8 @@ jobs:
         run: |
           git config --local user.name ${{ secrets.USERNAME_GITHUB }}
           git config --local user.email ${{ secrets.EMAIL }}
-          git commit -m "Update recipes" -a
+          git add images/recipes/*
+          git commit -am "Update recipes" || echo "Nothing to update"
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
