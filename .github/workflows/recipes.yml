@@ -3,9 +3,13 @@ name: Update Recipes
 on:
   push:
     branches:
-      - master
+<<<<<<< HEAD:.github/workflows/recipes.yml
+      - main
   schedule:
-    - cron:  '0 0 * * *'
+    - cron:  '*/15 * * * *'
+=======
+      - master
+>>>>>>> 0f87616 (Update main.yml):.github/workflows/main.yml
   workflow_dispatch:
 
 
@@ -37,7 +41,13 @@ jobs:
         run: |
           git config --local user.name ${{ secrets.USERNAME_GITHUB }}
           git config --local user.email ${{ secrets.EMAIL }}
+<<<<<<< HEAD:.github/workflows/recipes.yml
+          git add images/recipes/*
+          git commit -am "Update recipes" || echo "Nothing to update"
+=======
+          git pull origin master
           git commit -m "Update recipes" -a
+>>>>>>> 0f87616 (Update main.yml):.github/workflows/main.yml
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
