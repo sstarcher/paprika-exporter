@@ -2,7 +2,6 @@
 
 import json
 import os
-from dotenv import load_dotenv
 import shutil
 from base64 import b64encode
 from http.client import HTTPSConnection
@@ -10,9 +9,11 @@ from http.client import HTTPSConnection
 import yaml
 
 import requests
+from dotenv import load_dotenv
+load_dotenv()
 
-email = os.getenv['EMAIL']
-password = os.getenv['PASSWORD']
+email = os.environ['EMAIL']
+password = os.environ['PASSWORD']
 
 c = HTTPSConnection("www.paprikaapp.com")
 
