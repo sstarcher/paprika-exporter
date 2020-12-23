@@ -35,5 +35,11 @@ jobs:
 
       - name: setup git config
         run: |
-          git config user.name ${{ secrets.USERNAME_GITHUB }}
-          git config user.email ${{ secrets.EMAIL }}
+          git config --local user.name ${{ secrets.USERNAME_GITHUB }}
+          git config --local user.email ${{ secrets.EMAIL }}
+          git commit -m "Update recipes" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
