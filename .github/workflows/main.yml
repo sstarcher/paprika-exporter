@@ -27,6 +27,9 @@ jobs:
       - name: Execute Python script
         run: |
           python export.py
+        env:
+          EMAIL: ${{ secrets.EMAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
 
       - name: setup git config
         run: |
