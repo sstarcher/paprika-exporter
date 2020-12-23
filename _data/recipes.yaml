@@ -686,6 +686,49 @@
   source_url: https://www.kingarthurflour.com/recipes/braided-lemon-bread-recipe
   total_time: ''
   uid: 45CE4F05-828D-4932-A4F9-85BC1F14C66C-10519-00000334E25F634A
+- categories:
+  - Web
+  cook_time: ''
+  created: '2020-12-23 00:23:18'
+  description: ''
+  difficulty: ''
+  directions:
+  - "Preheat oven to 350\xB0. Cook 12 oz. extra-wide egg noodles in a large pot of\
+    \ boiling salted water, stirring occasionally, until al dente, about 4\u20135\
+    \ minutes. Drain, leaving a little bit of water clinging to the noodles."
+  - "Make the creamy sauce: Cut 1 stick butter into a few big pieces and transfer\
+    \ to a small heatproof bowl. Microwave until butter is melted, about 1 minute.\
+    \ Let cool slightly. Whisk 8 large eggs and \xBD cup sugar in a large bowl until\
+    \ sugar is dissolved and eggs are frothy, 1\u20132 minutes. Add 1 lb. full-fat\
+    \ cottage cheese, 1 lb. full-fat sour cream, 2 tsp. vanilla extract, 1 tsp. ground\
+    \ cinnamon, and remaining 2 tsp. salt to egg mixture. Whisk vigorously to combine.\
+    \ Pour in melted butter and whisk again to combine."
+  image_url: /images/recipes/8C5E6641-A3B3-41B1-AA4F-79A921358458-1776-0000009B40A3E1FC.jpg
+  in_trash: false
+  ingredients:
+  - 12 oz. extra-wide egg noodles
+  - 2 tsp. kosher salt, plus more
+  - "\xBD cup (1 stick) unsalted butter, plus more for pan"
+  - 8 large eggs
+  - "\xBD cup sugar"
+  - 1 lb. full-fat cottage cheese
+  - 1 lb. full-fat sour cream
+  - 2 tsp. vanilla extract
+  - 1 tsp. ground cinnamon
+  is_pinned: false
+  name: Basically Noodle Kugel
+  notes: ''
+  nutritional_info: ''
+  on_favorites: false
+  on_grocery_list: null
+  prep_time: ''
+  rating: 0
+  scale: null
+  servings: "10\u201312 servings"
+  source: bonappetit.com
+  source_url: https://www.bonappetit.com/recipe/basically-noodle-kugel
+  total_time: ''
+  uid: 5266BEE2-8B3F-43F1-9DBC-563D1148F2AB-1776-0000009AC773BE6F
 - categories: []
   cook_time: ''
   created: '2020-12-18 01:24:38'
@@ -1956,9 +1999,55 @@
   source_url: https://veenaazmanov.com/chocolate-rugelach/
   total_time: ''
   uid: 84A1EA00-FEDA-439C-80D6-3E0A49654ACD-31731-00000BBA72CA018C
+- categories: []
+  cook_time: 'prep: 15 min. + cooling'
+  created: '2020-12-23 00:10:16'
+  description: ''
+  difficulty: ''
+  directions:
+  - Drain pineapple, reserving juice. Cut slices in half; set aside. In a jar with
+    a tight-fitting lid, combine the oil, honey, vinegar, soy sauce and reserved pineapple
+    juice; shake well. , Refrigerate for at least 30 minutes. Combine the romaine,
+    onion slices and pineapple slices in a serving dish. Drizzle with dressing; toss
+    to coat.
+  image_url: https://www.tasteofhome.com/wp-content/uploads/2018/01/exps22234_LT10353D7-1.jpg
+  in_trash: false
+  ingredients:
+  - 1 can (8 ounces) unsweetened pineapple slices
+  - 1 tablespoon olive oil
+  - 1 tablespoon honey
+  - 1-1/2 teaspoons cider vinegar
+  - 1-1/2 teaspoons reduced-sodium soy sauce
+  - 6 cups torn romaine
+  - 1/2 cup thinly sliced red onion
+  is_pinned: false
+  name: Pineapple Salad
+  notes: ''
+  nutritional_info: 'Fat: 2g fat (1g saturated fat)
+
+    Calories: 64 calories
+
+    Sodium: 59mg sodium
+
+    Fiber: 1g fiber)
+
+    Carbohydrate: 11g carbohydrate (0 sugars
+
+    Cholesterol: 0 cholesterol
+
+    Protein: 1g protein. Diabetic Exchanges: 1 vegetable'
+  on_favorites: false
+  on_grocery_list: null
+  prep_time: 15 min
+  rating: 0
+  scale: null
+  servings: 6 servings
+  source: tasteofhome.com
+  source_url: https://www.tasteofhome.com/recipes/pineapple-salad/
+  total_time: ''
+  uid: 85C6B6A1-CF40-46E0-ACB1-DEE2348C49F8-1776-00000097BE8D059D
 - categories:
   - Jewish
-  - Web
   - I Made This
   cook_time: 15 minutes
   created: '2020-12-21 12:28:10'
