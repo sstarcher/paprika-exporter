@@ -2022,6 +2022,65 @@
   total_time: ''
   uid: 87EC70DC-8272-4E94-A1E0-8ED3957022A5-10753-0000038DF159BE79
 - categories: []
+  cook_time: 40mins
+  created: '2020-12-22 20:22:06'
+  description: ''
+  difficulty: ''
+  directions:
+  - In large bowl, mix together flour, baking powder and spices.
+  - In seperate bowl, whisk together egg yolks, milk, sweet potato, oil and orange
+    rind.
+  - Pour wet ingredients over dry ingredients, stir together until just moistened.
+  - In a bowl with electric mixer, beat egg whites until soft peaks form; add sugar,
+    beat until stiff peaks form.
+  - Fold into batter; pour batter onto a heated nonstick lightly greased waffle iron.
+  - Cook until golden brown until waffle iron stops steaming, about 5 minutes.
+  image_url: https://img.sndimg.com:443/food/image/upload/c_thumb,q_80,w_375,h_211/v1/img/recipes/11/74/79/BCOJFdLuRcaheQcThYxL_sweet-potato-waffles-7776.jpg
+  in_trash: false
+  ingredients:
+  - 1 cup whole wheat flour
+  - 1 cup all-purpose flour
+  - 4 teaspoons baking powder
+  - 1/2 teaspoon cinnamon
+  - 1/4 teaspoon clove
+  - 2 eggs, seperated
+  - 1 1/2 cups skim milk
+  - 1 cup pureed cooked sweet potato
+  - 3 tablespoons oil
+  - 2 teaspoons grated orange rind
+  - 1 tablespoon granulated sugar
+  is_pinned: false
+  name: Sweet Potato Waffles
+  notes: 'NOTE: These waffles freeze well; After freezing, just microwave them for
+    about 30 seconds and pop them briefly into the toaster.'
+  nutritional_info: 'Fat: 4.6
+
+    Calories: 141.6
+
+    Saturated Fat: 0.8
+
+    Sodium: 157.7
+
+    Fiber: 1.8
+
+    Sugar: 1.6
+
+    Carbohydrate: 20.8
+
+    Cholesterol: 31.6
+
+    Protein: 4.8'
+  on_favorites: false
+  on_grocery_list: null
+  prep_time: 10 min
+  rating: 0
+  scale: null
+  servings: 'Serves: 12'
+  source: food.com
+  source_url: https://www.food.com/recipe/sweet-potato-waffles-117479
+  total_time: ''
+  uid: 8C1D4340-7CF9-4906-8BE3-CCD4FC754331-1776-000000885897B092
+- categories: []
   cook_time: 50 mins
   created: '2020-10-16 16:03:00'
   description: ''
