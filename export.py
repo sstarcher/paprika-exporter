@@ -74,5 +74,5 @@ for item in json.loads(data)['result']:
         recipe['categories'] = categoryList
 
     recipes.append(recipe)
-with open(r'./recipes.yaml', 'w') as file:
+with open(r'./_data/recipes.yaml', 'w') as file:
     yaml.safe_dump(recipes, file)
