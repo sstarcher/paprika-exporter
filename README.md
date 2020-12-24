@@ -2,7 +2,21 @@
 
 Export Paprika data using the API to yaml
 
+# Introduction
+
 This tool statically generates a list of Paprika recipes in YAML format, with a related folder of images. 
+
+# Installation
+
+pip3 install papexp
+
+# Example python code
+
+import papexp
+from papexp import export
+export.exportrecipes()
+
+# Examples on the web
 
 You can see that on [my website][1]
 
@@ -15,3 +29,4 @@ My goal with this package is to make implementation of his code on your website 
 [1]:	https://chrisfnicholson.com/recipes.html
 [2]:	http://www.github.com/datapolitical/chrisfnicholson.github.io
 [3]:	https://github.com/sstarcher/paprika-exporter
+
