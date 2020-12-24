@@ -6,8 +6,8 @@ with open("requirements.txt", "r") as fh:
     requirements = [line.strip() for line in fh]
 
 setuptools.setup(
-    name="paprika-exporter",
-    version="0.0.3",
+    name="papexp",
+    version="0.0.6",
     author="Chris Nicholson",
     author_email="datapolitical@gmail.com",
     description="A simple exporter for the paprika app.",
