@@ -7,7 +7,7 @@ with open("requirements.txt", "r") as fh:
 
 setuptools.setup(
     name="papexp",
-    version="0.0.4",
+    version="0.0.6",
     author="Chris Nicholson",
     author_email="datapolitical@gmail.com",
     description="A simple exporter for the paprika app.",
