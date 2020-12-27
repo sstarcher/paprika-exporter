@@ -10,6 +10,10 @@ This tool statically generates a list of Paprika recipes in YAML format, with a 
 
 pip3 install papexp
 
+# Issues
+
+Make sure to delete recipes from the trash in the app because it can cause errors.
+
 # Example python code
 
 import papexp
