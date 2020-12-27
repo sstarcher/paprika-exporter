@@ -1,6 +1,8 @@
 .env
 .DS_Store
-images/.DS_Store
+assets/.DS_Store
+assets/images/.DS_Store
+assets/images/recipes/.DS_Store
 .pypirc
 env/
 .vscode/
@@ -14,5 +16,7 @@ docs/_build/
 docs/_static/
 docs/_templates/
 AUTHORS
-_data/
+_data/.DS_Store
+_data/recipes.yaml
 recipes.yaml
+assets/images/recipes/*.*
