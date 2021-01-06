@@ -39,12 +39,12 @@ def export_recipes():
         data = res.read()
         recipe = json.loads(data)['result']
         print(recipe['name'])
-        if recipe['photo_url'] and recipe['photo_url'].startswith('http://uploads.paprikaapp.com.s3.amazonaws.com'):
+        if recipe['photo_url']:
             resp = requests.get(recipe['photo_url'], stream=True)
-            local_file = open('images/recipes/'+recipe['photo'], 'wb')
+            local_file = open('assets/images/recipes/'+recipe['photo'], 'wb')
             resp.raw.decode_content = True
             shutil.copyfileobj(resp.raw, local_file)
-            recipe['image_url'] = '/images/recipes/'+recipe['photo']
+            recipe['image_url'] = 'images/recipes/'+recipe['photo']
 
 
         del recipe['photo_url']
