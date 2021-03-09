@@ -23,7 +23,21 @@ jobs:
 
       - name: Execute Python script
         run: |
-          python papexp/export.py
+          python export.py
         env:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
+
+      - name: setup git config
+        run: |
+          git config --local user.name ${{ secrets.USERNAME_GITHUB }}
+          git config --local user.email ${{ secrets.EMAIL }}
+          git pull origin master
+          git add images/recipes/*
+          git commit -am "Update recipes" || echo "Nothing to update"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
