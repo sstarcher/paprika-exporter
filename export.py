@@ -25,6 +25,7 @@ categories = {}
 for item in json.loads(data)['result']:
     categories[item['uid']] = item['name']
 
+
 c.request('GET', '/api/v1/sync/recipes/', headers=headers)
 res = c.getresponse()
 data = res.read()
@@ -35,15 +36,25 @@ for item in json.loads(data)['result']:
     res = c.getresponse()
     data = res.read()
     recipe = json.loads(data)['result']
-    print(recipe['name'])
-    if recipe['photo_url'] and recipe['photo_url'].startswith('http://uploads.paprikaapp.com.s3.amazonaws.com'):
+    
+
+    if recipe['photo_large']:
+        recipe['photo'] = recipe['photo_large']
+        addr = recipe['photo_large'][:-4]
+        c.request('GET', "/api/v1/sync/photo/"+addr+"/", headers=headers)
+        res = c.getresponse()
+        data = res.read()
+        photoData = json.loads(data)['result']
+        recipe['photo_url'] = photoData['photo_url']
+    
+    
+    if recipe['photo'] and recipe['photo_url'] and recipe['photo_url'].startswith('http://uploads.paprikaapp.com.s3.amazonaws.com'): 
         if not recipe['image_url']:
             recipe['image_url'] = '/images/recipes/'+recipe['photo']
         resp = requests.get(recipe['photo_url'], stream=True)
         local_file = open('images/'+recipe['photo'], 'wb')
         resp.raw.decode_content = True
         shutil.copyfileobj(resp.raw, local_file)
-
 
     del recipe['photo_url']
     del recipe['photo']
