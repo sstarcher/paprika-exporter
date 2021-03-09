@@ -24,7 +24,6 @@ def export_recipes():
     c.request('GET', '/api/v1/sync/categories/', headers=headers)
     res = c.getresponse()
     data = res.read()
-    print(data)
     categories = {}
     for item in json.loads(data)['result']:
         categories[item['uid']] = item['name']
@@ -32,7 +31,7 @@ def export_recipes():
     c.request('GET', '/api/v1/sync/recipes/', headers=headers)
     res = c.getresponse()
     data = res.read()
-
+    print(data)
     recipes = []
     for item in json.loads(data)['result']:
         c.request('GET', '/api/v1/sync/recipe/'+item['uid']+'/', headers=headers)
