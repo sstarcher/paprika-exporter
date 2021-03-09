@@ -31,27 +31,21 @@ def export_recipes():
     c.request('GET', '/api/v1/sync/recipes/', headers=headers)
     res = c.getresponse()
     data = res.read()
-    print(data)
     recipes = []
     for item in json.loads(data)['result']:
         c.request('GET', '/api/v1/sync/recipe/'+item['uid']+'/', headers=headers)
         res = c.getresponse()
         data = res.read()
         recipe = json.loads(data)['result']
+        print(recipe)
         print(recipe['name'])
-        if recipe['photo_url']:
+        if 1==0 and recipe['photo_url']:
             resp = requests.get(recipe['photo_url'], stream=True)
             local_file = open('assets/images/recipes/'+recipe['photo'], 'wb')
             resp.raw.decode_content = True
             shutil.copyfileobj(resp.raw, local_file)
             recipe['image_url'] = 'images/recipes/'+recipe['photo']
 
-
-        del recipe['photo_url']
-        del recipe['photo']
-        del recipe['hash']
-        del recipe['photo_hash']
-        del recipe['photo_large']
 
         if recipe['directions']:
             directions = recipe['directions'].split('\n')
@@ -74,6 +68,7 @@ def export_recipes():
             recipe['categories'] = categoryList
 
         recipes.append(recipe)
+    print(recipes)
     with open(r'./_data/recipes.yaml', 'w') as file:
         yaml.safe_dump(recipes, file)
 
