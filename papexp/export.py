@@ -55,7 +55,7 @@ def export_recipes():
             local_file = open('assets/images/recipes/'+recipe['photo'], 'wb')
             resp.raw.decode_content = True
             shutil.copyfileobj(resp.raw, local_file)
-            recipe['image_url'] = 'assets/images/recipes/'+recipe['photo']
+            recipe['image_url'] = 'images/recipes/'+recipe['photo']
 
 
         del recipe['photo_url']
