@@ -17,13 +17,13 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
-        
+
       - name: Install Requirements
         run: pip install -r requirements.txt
 
       - name: Execute Python script
         run: |
-          python export.py
+          python papexp/export.py
         env:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
@@ -33,7 +33,7 @@ jobs:
           git config --local user.name ${{ secrets.USERNAME_GITHUB }}
           git config --local user.email ${{ secrets.EMAIL }}
           git pull origin master
-          git add images/recipes/*
+          git add assets/images/recipes/*
           git commit -am "Update recipes" || echo "Nothing to update"
 
       - name: Push changes
