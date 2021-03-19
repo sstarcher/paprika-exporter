@@ -27,17 +27,35 @@ def export_recipes():
     categories = {}
     for item in json.loads(data)['result']:
         categories[item['uid']] = item['name']
+        
+    #! this gets all photos
+    c.request('GET', '/api/v1/sync/photos/, headers=headers)
+    res = c.getresponse()
+    data = res.read()
+    photos = json.loads(data)['result']
+    for item in json.loads(data)['result']:
+        c.request('GET', '/api/v1/sync/photo/'+item['uid']+'/', headers=headers)
+        res = c.getresponse()
+        data = res.read()
+        photo = json.loads(data)['result']
+        local_file = open('assets/images/recipes/'+photo['filename'], 'wb')
+        resp.raw.decode_content = True
+        shutil.copyfileobj(resp.raw, local_file)
+        photo['photo_url'] = 'images/recipes/'+photo['filename']
+        
 
     c.request('GET', '/api/v1/sync/recipes/', headers=headers)
     res = c.getresponse()
     data = res.read()
 
     recipes = []
+    
     for item in json.loads(data)['result']:
         c.request('GET', '/api/v1/sync/recipe/'+item['uid']+'/', headers=headers)
         res = c.getresponse()
         data = res.read()
         recipe = json.loads(data)['result']
+        #! https://gist.github.com/mattdsteele/7386ec363badfdeaad05a418b9a1f30a
         print(recipe['name'])
         if recipe['photo_large']:
             recipe['photo'] = recipe['photo_large']
