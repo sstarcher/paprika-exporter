@@ -27,29 +27,14 @@ def export_recipes():
     categories = {}
     for item in json.loads(data)['result']:
         categories[item['uid']] = item['name']
-        
-    #! this gets all photos
-    c.request('GET', '/api/v1/sync/photos/, headers=headers)
-    res = c.getresponse()
-    data = res.read()
-    photos = json.loads(data)['result']
-    for item in json.loads(data)['result']:
-        c.request('GET', '/api/v1/sync/photo/'+item['uid']+'/', headers=headers)
-        res = c.getresponse()
-        data = res.read()
-        photo = json.loads(data)['result']
-        local_file = open('assets/images/recipes/'+photo['filename'], 'wb')
-        resp.raw.decode_content = True
-        shutil.copyfileobj(resp.raw, local_file)
-        photo['photo_url'] = 'images/recipes/'+photo['filename']
-        
+
 
     c.request('GET', '/api/v1/sync/recipes/', headers=headers)
     res = c.getresponse()
     data = res.read()
 
     recipes = []
-    
+
     for item in json.loads(data)['result']:
         c.request('GET', '/api/v1/sync/recipe/'+item['uid']+'/', headers=headers)
         res = c.getresponse()
@@ -82,6 +67,8 @@ def export_recipes():
         del recipe['photo_hash']
         del recipe['photo_large']
 
+        recipe['photos'] = []
+
         if recipe['directions']:
             directions = recipe['directions'].split('\n')
             recipe['directions'] = []
@@ -103,6 +90,26 @@ def export_recipes():
             recipe['categories'] = categoryList
 
         recipes.append(recipe)
+
+    #! this gets all photos
+    c.request('GET', '/api/v1/sync/photos/', headers=headers)
+    res = c.getresponse()
+    data = res.read()
+    photos = json.loads(data)['result']
+    for item in json.loads(data)['result']:
+        c.request('GET', '/api/v1/sync/photo/'+item['uid']+'/', headers=headers)
+        res = c.getresponse()
+        data = res.read()
+        photo = json.loads(data)['result']
+        print(photo['uid'])
+        rec = [x for x in recipes if x['uid'] == photo['recipe_uid']]
+        print(rec)
+        rec[0]['photos'].append('images/recipes/'+photo['filename'])
+        resp = requests.get(photo['photo_url'], stream=True)
+        local_file = open('assets/images/recipes/'+photo['filename'], 'wb')
+        resp.raw.decode_content = True
+        shutil.copyfileobj(resp.raw, local_file)
+
     with open(r'./_data/recipes.yaml', 'w') as file:
         yaml.safe_dump(recipes, file)
 
