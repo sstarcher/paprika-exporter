@@ -28,16 +28,19 @@ def export_recipes():
     for item in json.loads(data)['result']:
         categories[item['uid']] = item['name']
 
+
     c.request('GET', '/api/v1/sync/recipes/', headers=headers)
     res = c.getresponse()
     data = res.read()
 
     recipes = []
+
     for item in json.loads(data)['result']:
         c.request('GET', '/api/v1/sync/recipe/'+item['uid']+'/', headers=headers)
         res = c.getresponse()
         data = res.read()
         recipe = json.loads(data)['result']
+        #! https://gist.github.com/mattdsteele/7386ec363badfdeaad05a418b9a1f30a
         print(recipe['name'])
         if recipe['photo_large']:
             recipe['photo'] = recipe['photo_large']
@@ -64,6 +67,8 @@ def export_recipes():
         del recipe['photo_hash']
         del recipe['photo_large']
 
+        recipe['photos'] = []
+
         if recipe['directions']:
             directions = recipe['directions'].split('\n')
             recipe['directions'] = []
@@ -85,6 +90,28 @@ def export_recipes():
             recipe['categories'] = categoryList
 
         recipes.append(recipe)
+
+    #! this gets all photos
+    c.request('GET', '/api/v1/sync/photos/', headers=headers)
+    res = c.getresponse()
+    data = res.read()
+    photos = json.loads(data)['result']
+    for item in json.loads(data)['result']:
+        c.request('GET', '/api/v1/sync/photo/'+item['uid']+'/', headers=headers)
+        res = c.getresponse()
+        data = res.read()
+        photo = json.loads(data)['result']
+        rec = [x for x in recipes if x['uid'] == photo['recipe_uid']]
+        #! create newphoto dict with uid and filenamd
+        newphoto = {}
+        photo_name = photo['name']
+        newphoto[photo_name] = 'images/recipes/'+photo['filename']
+        rec[0]['photos'].append(newphoto)
+        resp = requests.get(photo['photo_url'], stream=True)
+        local_file = open('assets/images/recipes/'+photo['filename'], 'wb')
+        resp.raw.decode_content = True
+        shutil.copyfileobj(resp.raw, local_file)
+
     with open(r'./_data/recipes.yaml', 'w') as file:
         yaml.safe_dump(recipes, file)
 
