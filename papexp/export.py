@@ -101,11 +101,12 @@ def export_recipes():
         res = c.getresponse()
         data = res.read()
         photo = json.loads(data)['result']
-        print(photo['uid'])
         rec = [x for x in recipes if x['uid'] == photo['recipe_uid']]
-        print(rec)
         #! create newphoto dict with uid and filenamd
-        rec[0]['photos'].append('images/recipes/'+photo['filename'])
+        newphoto = {}
+        photo_name = photo['name']
+        newphoto[photo_name] = 'images/recipes/'+photo['filename']
+        rec[0]['photos'].append(newphoto)
         resp = requests.get(photo['photo_url'], stream=True)
         local_file = open('assets/images/recipes/'+photo['filename'], 'wb')
         resp.raw.decode_content = True
