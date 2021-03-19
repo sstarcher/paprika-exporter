@@ -104,6 +104,7 @@ def export_recipes():
         print(photo['uid'])
         rec = [x for x in recipes if x['uid'] == photo['recipe_uid']]
         print(rec)
+        #! create newphoto dict with uid and filenamd
         rec[0]['photos'].append('images/recipes/'+photo['filename'])
         resp = requests.get(photo['photo_url'], stream=True)
         local_file = open('assets/images/recipes/'+photo['filename'], 'wb')
