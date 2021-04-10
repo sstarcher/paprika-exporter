@@ -19,4 +19,5 @@ AUTHORS
 _data/.DS_Store
 _data/recipes.yaml
 recipes.yaml
+recipes_nutrition.yaml
 assets/images/recipes/*.*
