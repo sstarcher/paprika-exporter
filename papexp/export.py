@@ -20,6 +20,17 @@ c = HTTPSConnection("www.paprikaapp.com")
 userAndPass = b64encode(bytes(email+":"+password, 'utf-8')).decode("ascii")
 headers = { 'Authorization' : 'Basic %s' %  userAndPass }
 
+def check_and_run():
+    with open(r'./_data/recipes_status.json', 'rb') as file:
+        old_data = file.read()
+    c.request('GET', '/api/v1/sync/status/', headers=headers)
+    res = c.getresponse()
+    new_data = res.read()
+    if new_data != old_data:
+        with open(r'./_data/recipes_status.json', 'wb') as file:
+            file.write(new_data)
+        export_recipes()
+
 def export_recipes():
     c.request('GET', '/api/v1/sync/categories/', headers=headers)
     res = c.getresponse()
@@ -116,4 +127,4 @@ def export_recipes():
         yaml.safe_dump(recipes, file)
 
 if __name__ == "__main__":
-    export_recipes()
+    check_and_run()
