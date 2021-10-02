@@ -1,2 +1,2 @@
 import papexp.export
-papexp.export.export_recipes()
+papexp.export.check_and_run()
