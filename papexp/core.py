@@ -24,7 +24,7 @@ def check_and_run():
     try:
         with open(r'./_data/recipes_status.json', 'rb') as file:
             old_data = file.read()
-    except IOError as error: 
+    except IOError as error:
         with open(r'./_data/recipes_status.json', 'wb') as file:
             pass
         old_data = "{}"
@@ -56,7 +56,7 @@ def export_recipes():
         res = c.getresponse()
         data = res.read()
         recipe = json.loads(data)['result']
-        #! https://gist.github.com/mattdsteele/7386ec363badfdeaad05a418b9a1f30a
+        # https://gist.github.com/mattdsteele/7386ec363badfdeaad05a418b9a1f30a
         print(recipe['name'])
         if recipe['photo_large']:
             recipe['photo'] = recipe['photo_large']
@@ -111,13 +111,15 @@ def export_recipes():
     res = c.getresponse()
     data = res.read()
     photos = json.loads(data)['result']
+    print("\n\n")
+    print("Photos")
     for item in json.loads(data)['result']:
         c.request('GET', '/api/v1/sync/photo/'+item['uid']+'/', headers=headers)
         res = c.getresponse()
         data = res.read()
         photo = json.loads(data)['result']
         rec = [x for x in recipes if x['uid'] == photo['recipe_uid']]
-        
+        print(rec[0]['name'])
         # create newphoto dict with uid and filename
         newphoto = {}
         photo_name = photo['name']

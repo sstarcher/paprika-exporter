@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="papexp",
-    version="0.3.4",
+    version="0.4.0",
     author="Chris Nicholson",
     author_email="datapolitical@gmail.com",
     description="A simple exporter for the paprika app.",
@@ -19,7 +19,7 @@ setuptools.setup(
     ],
     python_requires='>=3.6',
     install_requires=[
-        'requests>=2.25.0',     
+        'requests>=2.25.0',
         'python-dotenv>=0.15.0',
         'PyYAML>=5.4'
     ]
