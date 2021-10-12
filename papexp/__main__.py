@@ -1,2 +1,2 @@
-import papexp.export
-papexp.export.check_and_run()
+import papexp.core
+papexp.core.check_and_run()
