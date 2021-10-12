@@ -21,8 +21,13 @@ userAndPass = b64encode(bytes(email+":"+password, 'utf-8')).decode("ascii")
 headers = { 'Authorization' : 'Basic %s' %  userAndPass }
 
 def check_and_run():
-    with open(r'./_data/recipes_status.json', 'rb') as file:
-        old_data = file.read()
+    try:
+        with open(r'./_data/recipes_status.json', 'rb') as file:
+            old_data = file.read()
+    except IOError as error: 
+        with open(r'./_data/recipes_status.json', 'wb') as file:
+            pass
+        old_data = "{}"
     c.request('GET', '/api/v1/sync/status/', headers=headers)
     res = c.getresponse()
     new_data = res.read()
@@ -64,7 +69,6 @@ def export_recipes():
 
 
         if recipe['photo'] and recipe['photo_url'] and recipe['photo_url'].startswith('http://uploads.paprikaapp.com.s3.amazonaws.com'):
-        #!if recipe['photo_url']:
             resp = requests.get(recipe['photo_url'], stream=True)
             local_file = open('assets/images/recipes/'+recipe['photo'], 'wb')
             resp.raw.decode_content = True
@@ -102,7 +106,7 @@ def export_recipes():
 
         recipes.append(recipe)
 
-    #! this gets all photos
+    # this gets all photos
     c.request('GET', '/api/v1/sync/photos/', headers=headers)
     res = c.getresponse()
     data = res.read()
@@ -113,7 +117,8 @@ def export_recipes():
         data = res.read()
         photo = json.loads(data)['result']
         rec = [x for x in recipes if x['uid'] == photo['recipe_uid']]
-        #! create newphoto dict with uid and filenamd
+        
+        # create newphoto dict with uid and filename
         newphoto = {}
         photo_name = photo['name']
         newphoto[photo_name] = 'images/recipes/'+photo['filename']

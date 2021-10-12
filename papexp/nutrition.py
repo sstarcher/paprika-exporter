@@ -14,7 +14,6 @@ n_url = "https://api.edamam.com/api/nutrition-details?app_id=" + app_id + "&app_
 
 def get_item_nutrition(r):
     recip= r
-    # rec = {key:r[key] for key in ['ingredients', 'name', 'servings', 'directions']}
     rec = dict((k, recip[k]) for k in ('ingredients', 'name', 'servings', 'directions'))
     rec['ingr'] = rec.pop('ingredients')
     rec['title'] = rec.pop('name')
