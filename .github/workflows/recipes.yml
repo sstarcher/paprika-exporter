@@ -1,6 +1,9 @@
 name: Update Recipes
 
 on:
+  push:
+    branches:
+      - master
   workflow_dispatch:
 
 
@@ -19,7 +22,7 @@ jobs:
           python-version: 3.8
 
       - name: Install Requirements
-        run: pip install -r requirements.txt
+        run: pip install .
 
       - name: Execute Python script
         run: |
