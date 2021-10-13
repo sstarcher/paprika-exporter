@@ -39,8 +39,9 @@ def check_and_run():
         export_recipes()
 
 def export_recipes():
+
     pathlib.Path('_data').mkdir(parents=True, exist_ok=True)
-pathlib.Path('assets/images/recipes').mkdirs(parents=True, exist_ok=True)
+    pathlib.Path('assets/images/recipes').mkdirs(parents=True, exist_ok=True)
     c.request('GET', '/api/v1/sync/categories/', headers=headers)
     res = c.getresponse()
     data = res.read()
