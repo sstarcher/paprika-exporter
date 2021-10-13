@@ -23,7 +23,7 @@ userAndPass = b64encode(bytes(email+":"+password, 'utf-8')).decode("ascii")
 headers = { 'Authorization' : 'Basic %s' %  userAndPass }
 
 def check_and_run():
-    pathlib.Path('/_data').mkdir(parents=True, exist_ok=True)
+    pathlib.Path('_data').mkdir(parents=True, exist_ok=True)
     try:
         with open(r'./_data/recipes_status.json', 'rb') as file:
             old_data = file.read()
@@ -39,7 +39,7 @@ def check_and_run():
         export_recipes()
 
 def export_recipes():
-    pathlib.Path('/_data').mkdir(parents=True, exist_ok=True)
+    pathlib.Path('_data').mkdir(parents=True, exist_ok=True)
     c.request('GET', '/api/v1/sync/categories/', headers=headers)
     res = c.getresponse()
     data = res.read()

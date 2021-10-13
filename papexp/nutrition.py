@@ -26,7 +26,7 @@ def get_item_nutrition(r):
     return n_data
 
 def get_nutrition_data():
-    pathlib.Path('/_data').mkdir(parents=True, exist_ok=True)
+    pathlib.Path('_data').mkdir(parents=True, exist_ok=True)
     with open(r'./_data/recipes.yaml', 'r') as stream:
         data_loaded = yaml.safe_load(stream)
     with open(r'./_data/recipes_nutrition.yaml', 'r') as stream2:
