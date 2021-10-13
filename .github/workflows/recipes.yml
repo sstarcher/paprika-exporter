@@ -26,7 +26,7 @@ jobs:
 
       - name: Execute Python script
         run: |
-          python papexp/export.py
+          python export.py
         env:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
