@@ -34,7 +34,7 @@ def check_and_run():
     res = c.getresponse()
     new_data = res.read()
     if new_data != old_data:
-        with open(r'./_data/recipes_status.json', 'wb') as file:
+        with open(r'./_data/recipes_status.json', 'wb+') as file:
             file.write(new_data)
         export_recipes()
 
