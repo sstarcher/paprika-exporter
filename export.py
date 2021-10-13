@@ -9,4 +9,4 @@ if __name__ == "__main__":
         if args[1] == "-c":
             papexp.core.export_recipes()
         else:
-            print("Use no arguments or -c to run without")
+            print("Use no arguments or -c to run without status check")

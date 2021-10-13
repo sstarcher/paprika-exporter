@@ -25,8 +25,7 @@ def check_and_run():
         with open(r'./_data/recipes_status.json', 'rb') as file:
             old_data = file.read()
     except IOError as error:
-        with open(r'./_data/recipes_status.json', 'wb') as file:
-            pass
+        open('./_data/recipes_status.json', 'wb').close() 
         old_data = "{}"
     c.request('GET', '/api/v1/sync/status/', headers=headers)
     res = c.getresponse()
