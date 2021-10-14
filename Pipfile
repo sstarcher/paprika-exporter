@@ -9,3 +9,6 @@ verify_ssl = true
 
 [requires]
 python_version = "3.8"
+requests = ">=2.25.0"
+python-dotenv = ">=0.15.0"
+PyYAML = ">=5.4"
