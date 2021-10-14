@@ -32,14 +32,23 @@ jobs:
           PASSWORD: ${{ secrets.PASSWORD }}
 
       - name: setup git config
+        id: get_data
+        if: false #disables commit as data does not need to be saved during testing
         run: |
           git config --local user.name ${{ secrets.USERNAME_GITHUB }}
           git config --local user.email ${{ secrets.EMAIL }}
           git pull origin master
+          git add _data/*
           git add assets/images/recipes/*
-          git commit -am "Update recipes" || echo "Nothing to update"
+          git commit -am "Update recipes" || echo "::set-output name=status::Nothing to update"
+
+      - name: print variables
+        run: |
+          echo "Status: ${{steps.get_data.outputs.status}}"
 
       - name: Push changes
+        #remove false && to enable push *only* when there is new data
+        if: false || steps.get_data.outputs.status != 'Nothing to update' #disables this step
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

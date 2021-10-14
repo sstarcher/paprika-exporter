@@ -4,7 +4,7 @@ Export Paprika data using the API to yaml
 
 # Introduction
 
-This tool statically generates a list of Paprika recipes in YAML format, with a related folder of images. 
+This tool statically generates a list of Paprika recipes in YAML format, with a related folder of images.
 
 # Installation
 
@@ -14,11 +14,15 @@ pip3 install papexp
 
 Make sure to completely delete any recipes from the trash in the Paprika app because it can cause errors when exporting your recipes.
 
+This code places the recipes yaml file in the _data/ directory, and creates it if it does not exist.
+
+This code puts image files into assets/images/recipes, and creates that folder if it does not exist. This is not compatible with the original sstarcher code which used "images/recipes". You may need to relocate these files after retreval if it does not match your required file path.
+
 # Example python code
 
 import papexp
-from papexp import export
-export.exportrecipes()
+from papexp import core
+papexp.core.checkandrun()
 
 # Examples on the web
 
@@ -32,7 +36,7 @@ This code is almost entirely the work of [Shane Starcher][3] with additions by [
 
 
 
-My goal with this package is to make implementation of his code on your website dead simple.
+The goal with this package is to make implementation of this code on your website dead simple.
 
 [1]:	https://chrisfnicholson.com/recipes/
 [2]:	http://www.github.com/datapolitical/chrisfnicholson.github.io
