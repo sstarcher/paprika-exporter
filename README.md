@@ -12,7 +12,7 @@ pip3 install papexp
 
 # Issues
 
-Make sure to delete recipes from the trash in the app because it can cause errors.
+Make sure to completely delete any recipes from the trash in the Paprika app because it can cause errors when exporting your recipes.
 
 # Example python code
 
@@ -22,15 +22,19 @@ export.exportrecipes()
 
 # Examples on the web
 
-You can see that on [my website][1]
+You can see this code live [here](https://shanestarcher.com/recipes) or on [chrisfnicholson.com][1].
 
-[My website repository][2] incorporates this code to routinely pull new recipes. 
+The recipes exporter using Paprika Exporter are [here](https://github.com/sstarcher/sstarcher.github.io/blob/source/_data/recipes.yaml)
 
-This code is almost entirely the work of [Shane Starcher][3]. I’m deeply grateful to him for building this.
+The repository for [chrisfnicholson.com][2] incorporates this code to routinely pull new recipes. 
+
+This code is almost entirely the work of [Shane Starcher][3] with additions by [Chris Nicholson][4].
+
+
 
 My goal with this package is to make implementation of his code on your website dead simple.
 
 [1]:	https://chrisfnicholson.com/recipes/
 [2]:	http://www.github.com/datapolitical/chrisfnicholson.github.io
-[3]:	https://github.com/sstarcher/paprika-exporter
-
+[3]:	https://github.com/sstarcher
+[4]:	https://github.com/datapolitical
