@@ -34,7 +34,7 @@ You can see this code live [here](https://shanestarcher.com/recipes) or on [chri
 
 The recipes exporter using Paprika Exporter are [here](https://github.com/sstarcher/sstarcher.github.io/blob/source/_data/recipes.yaml)
 
-The repository for [chrisfnicholson.com][2] incorporates this code to routinely pull new recipes. 
+The repository for [chrisfnicholson.com][2] incorporates this code to routinely pull new recipes.
 
 This code is almost entirely the work of [Shane Starcher][3] with additions by [Chris Nicholson][4].
 
