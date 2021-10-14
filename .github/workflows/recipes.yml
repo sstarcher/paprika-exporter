@@ -28,6 +28,7 @@ jobs:
         run: |
           python export.py
         env:
+        # You must create these repository secrets with your Paprika credentials
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
 
