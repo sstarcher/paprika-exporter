@@ -14,6 +14,10 @@ pip3 install papexp
 
 Make sure to delete recipes from the trash in the app because it can cause errors.
 
+This code places the recipes yaml file in the _data/ directory, and creates it if it does not exist.
+
+This code puts image files into assets/images/recipes, and creates that folder if it does not exist. This is not compatible with the original sstarcher code which used "images/recipes". You may need to relocate these files after retreval if it does not match your required file path.
+
 # Example python code
 
 import papexp
