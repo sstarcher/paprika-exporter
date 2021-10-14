@@ -30,7 +30,7 @@ This code is almost entirely the work of [Shane Starcher][3]. I’m deeply grate
 
 My goal with this package is to make implementation of his code on your website dead simple.
 
-[1]:	https://chrisfnicholson.com/recipes.html
+[1]:	https://chrisfnicholson.com/recipes/
 [2]:	http://www.github.com/datapolitical/chrisfnicholson.github.io
 [3]:	https://github.com/sstarcher/paprika-exporter
 
