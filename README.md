@@ -10,6 +10,10 @@ This tool statically generates a list of Paprika recipes in YAML format, with a 
 
 pip3 install papexp
 
+# Github Action
+
+In order to use the recipes.yml GitHub Action included with the repository you must create repository secrets with your Paprika EMAIL and PASSWORD
+
 # Issues
 
 Make sure to completely delete any recipes from the trash in the Paprika app because it can cause errors when exporting your recipes.
@@ -30,7 +34,7 @@ You can see this code live [here](https://shanestarcher.com/recipes) or on [chri
 
 The recipes exporter using Paprika Exporter are [here](https://github.com/sstarcher/sstarcher.github.io/blob/source/_data/recipes.yaml)
 
-The repository for [chrisfnicholson.com][2] incorporates this code to routinely pull new recipes. 
+The repository for [chrisfnicholson.com][2] incorporates this code to routinely pull new recipes.
 
 This code is almost entirely the work of [Shane Starcher][3] with additions by [Chris Nicholson][4].
 
