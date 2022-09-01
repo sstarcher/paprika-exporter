@@ -28,7 +28,7 @@ def check_and_run():
         with open(r'./_data/recipes_status.json', 'rb') as file:
             old_data = file.read()
     except IOError as error:
-        open(r'./_data/recipes_status.json', 'wb+').close() 
+        open(r'./_data/recipes_status.json', 'wb+').close()
         old_data = "{}"
     c.request('GET', '/api/v1/sync/status/', headers=headers)
     res = c.getresponse()
@@ -69,8 +69,12 @@ def export_recipes():
             c.request('GET', "/api/v1/sync/photo/"+addr+"/", headers=headers)
             res = c.getresponse()
             data = res.read()
-            photoData = json.loads(data)['result']
-            recipe['photo_url'] = photoData['photo_url']
+            jdata = json.loads(data)
+            if 'error' in jdata:
+                print(jdata['error'])
+            else:
+                photoData = jdata['result']
+                recipe['photo_url'] = photoData['photo_url']
 
 
         if recipe['photo'] and recipe['photo_url'] and recipe['photo_url'].startswith('http://uploads.paprikaapp.com.s3.amazonaws.com'):
@@ -106,7 +110,8 @@ def export_recipes():
         if recipe['categories']:
             categoryList = []
             for category in recipe['categories']:
-                categoryList.append(categories[category])
+                if category in categories:
+                    categoryList.append(categories[category])
             recipe['categories'] = categoryList
 
         recipes.append(recipe)
@@ -124,7 +129,6 @@ def export_recipes():
         data = res.read()
         photo = json.loads(data)['result']
         rec = [x for x in recipes if x['uid'] == photo['recipe_uid']]
-        print(rec[0]['name'])
         # create newphoto dict with uid and filename
         newphoto = {}
         photo_name = photo['name']
